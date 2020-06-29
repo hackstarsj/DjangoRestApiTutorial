@@ -21,6 +21,7 @@ from DjangoRestApp import views
 
 router=routers.DefaultRouter()
 router.register(r'posts',views.PostViewSets)
+router.register(r'posts_2',views.PostViewSetsAlternate,basename="post_2")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
