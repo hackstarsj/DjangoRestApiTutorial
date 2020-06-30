@@ -92,6 +92,10 @@ curl http://127.0.0.1:8000/posts_2/1/
 
 =================================================
 <br>
+<h2>TOKEN GENERATE for Authorized Access API</h2>
+<br>
+==================================================
+<br>
 <br>
 FOR JSON WEB TOKEN GENERATE <br>
 
