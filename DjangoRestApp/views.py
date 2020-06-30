@@ -1,14 +1,25 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 # Create your views here.
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.generics import get_object_or_404
+from rest_framework.permissions import IsAuthenticated, BasePermission
 from rest_framework.response import Response
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from DjangoRestApp.models import Posts
 from DjangoRestApp.serializers import PostSerializers
 
+class CustomPermission(BasePermission):
+    def has_permission(self, request, view):
+        if request.user.is_superuser == 1:
+            return True
+        else:
+            return False
 
 class PostViewSets(viewsets.ModelViewSet):
+    authentication_classes = [JWTAuthentication,TokenAuthentication]
+    permission_classes = [IsAuthenticated,CustomPermission]
     queryset = Posts.objects.all()
     serializer_class = PostSerializers
 

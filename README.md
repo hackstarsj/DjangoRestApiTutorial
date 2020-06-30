@@ -91,3 +91,25 @@ curl http://127.0.0.1:8000/posts_2/1/
 <br>
 
 =================================================
+<br>
+<br>
+FOR JSON WEB TOKEN GENERATE <br>
+
+curl -X POST http://127.0.0.1:8000/api/auth/token -d "username=admin" -d "password=admin"
+
+=================================================
+<br>
+<br>
+FOR Native TOKEN GENERATE <br>
+
+curl -X POST http://127.0.0.1:8000/token_generate/ -d "username=admin" -d "password=admin"
+
+=================================================
+
+<br>
+<br>
+FOR JWT TOKEN REFRESH <br>
+
+curl -X POST http://127.0.0.1:8000/api/auth/refresh -d "refresh=REFRESH TOKEN" -H "Authorization:ACCESS_TOKEN_JWT"
+
+=================================================
